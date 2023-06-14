@@ -12,9 +12,11 @@ Route::group([
     'middleware' => config('admin.route.middleware'),
 ], function (Router $router) {
 
+    $router->post('/common/upload','CommonController@upload');
     $router->get('/', 'HomeController@index');
     //公告
     $router->get('/notice', 'NoticeController@index');
     //广告
     $router->get('/ad/list','AdController@index');
+    $router->get('/ad/test','AdController@test');
 });

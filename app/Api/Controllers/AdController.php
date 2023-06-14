@@ -4,7 +4,7 @@ namespace App\Api\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Advert;
-use Dcat\Admin\Admin;
+use Dcat\Admin\Admin\Models;
 use Dcat\Admin\Http\JsonResponse;
 
 class AdController extends Controller
@@ -25,5 +25,16 @@ class AdController extends Controller
         }
 
         return JsonResponse::make()->data(['list'=>$list])->success('成功！');
+    }
+
+
+    public function test(){
+
+        $pwd = 'admin';
+
+        $hs = bcrypt($pwd);
+
+        var_dump($hs);
+        exit();
     }
 }

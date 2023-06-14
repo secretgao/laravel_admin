@@ -101,7 +101,7 @@ CREATE TABLE `admin_menu` (
 
 LOCK TABLES `admin_menu` WRITE;
 /*!40000 ALTER TABLE `admin_menu` DISABLE KEYS */;
-INSERT INTO `admin_menu` VALUES (1,0,1,'Index','feather icon-bar-chart-2','/','',1,'2023-06-13 04:52:45',NULL),(2,0,2,'Admin','feather icon-settings','','',1,'2023-06-13 04:52:45',NULL),(3,2,3,'Users','','auth/users','',1,'2023-06-13 04:52:45',NULL),(4,2,4,'Roles','','auth/roles','',1,'2023-06-13 04:52:45',NULL),(5,2,5,'Permission','','auth/permissions','',1,'2023-06-13 04:52:45',NULL),(6,2,6,'Menu','','auth/menu','',1,'2023-06-13 04:52:45',NULL),(7,2,7,'Extensions','','auth/extensions','',1,'2023-06-13 04:52:45',NULL),(13,0,13,'网站设置','fa-plane','/setting','',1,'2023-06-13 10:26:25','2023-06-13 10:26:25'),(14,0,14,'广告管理','fa-address-book','advert','',1,'2023-06-13 11:04:05','2023-06-13 11:16:40');
+INSERT INTO `admin_menu` VALUES (1,0,1,'Index','feather icon-bar-chart-2','/','',1,'2023-06-13 04:52:45',NULL),(2,0,2,'Admin','feather icon-settings',NULL,'',1,'2023-06-13 04:52:45','2023-06-13 16:02:28'),(3,2,3,'Users',NULL,'auth/users','',1,'2023-06-13 04:52:45','2023-06-13 16:02:20'),(4,2,4,'Roles',NULL,'auth/roles','',1,'2023-06-13 04:52:45','2023-06-13 16:02:39'),(5,2,5,'Permission',NULL,'auth/permissions','',1,'2023-06-13 04:52:45','2023-06-13 16:02:45'),(6,2,6,'Menu',NULL,'auth/menu','',1,'2023-06-13 04:52:45','2023-06-13 16:02:50'),(7,2,7,'Extensions',NULL,'auth/extensions','',1,'2023-06-13 04:52:45','2023-06-13 16:02:55'),(13,0,13,'网站设置','fa-plane','/setting','',1,'2023-06-13 10:26:25','2023-06-13 16:01:39'),(14,0,14,'广告管理','fa-address-book','advert','',1,'2023-06-13 11:04:05','2023-06-13 11:16:40');
 /*!40000 ALTER TABLE `admin_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,7 +127,7 @@ CREATE TABLE `admin_permission_menu` (
 
 LOCK TABLES `admin_permission_menu` WRITE;
 /*!40000 ALTER TABLE `admin_permission_menu` DISABLE KEYS */;
-INSERT INTO `admin_permission_menu` VALUES (1,13,'2023-06-13 10:26:25','2023-06-13 10:26:25'),(1,14,'2023-06-13 11:04:40','2023-06-13 11:04:40'),(2,13,'2023-06-13 10:26:25','2023-06-13 10:26:25'),(2,14,'2023-06-13 11:04:40','2023-06-13 11:04:40'),(3,13,'2023-06-13 10:26:25','2023-06-13 10:26:25'),(3,14,'2023-06-13 11:04:40','2023-06-13 11:04:40'),(4,13,'2023-06-13 10:26:25','2023-06-13 10:26:25'),(4,14,'2023-06-13 11:04:40','2023-06-13 11:04:40'),(5,13,'2023-06-13 10:26:25','2023-06-13 10:26:25'),(5,14,'2023-06-13 11:04:40','2023-06-13 11:04:40'),(6,13,'2023-06-13 10:26:25','2023-06-13 10:26:25'),(6,14,'2023-06-13 11:04:40','2023-06-13 11:04:40');
+INSERT INTO `admin_permission_menu` VALUES (7,13,'2023-06-13 15:44:56','2023-06-13 15:44:56'),(8,14,'2023-06-13 15:46:37','2023-06-13 15:46:37');
 /*!40000 ALTER TABLE `admin_permission_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,7 +150,7 @@ CREATE TABLE `admin_permissions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `admin_permissions_slug_unique` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,7 +159,7 @@ CREATE TABLE `admin_permissions` (
 
 LOCK TABLES `admin_permissions` WRITE;
 /*!40000 ALTER TABLE `admin_permissions` DISABLE KEYS */;
-INSERT INTO `admin_permissions` VALUES (1,'Auth management','auth-management','','',1,0,'2023-06-13 04:52:45',NULL),(2,'Users','users','','/auth/users*',2,1,'2023-06-13 04:52:45',NULL),(3,'Roles','roles','','/auth/roles*',3,1,'2023-06-13 04:52:45',NULL),(4,'Permissions','permissions','','/auth/permissions*',4,1,'2023-06-13 04:52:45',NULL),(5,'Menu','menu','','/auth/menu*',5,1,'2023-06-13 04:52:45',NULL),(6,'Extension','extension','','/auth/extensions*',6,1,'2023-06-13 04:52:45',NULL);
+INSERT INTO `admin_permissions` VALUES (1,'Auth management','auth-management','','',1,0,'2023-06-13 04:52:45',NULL),(2,'Users','users','','/auth/users*',2,1,'2023-06-13 04:52:45',NULL),(3,'Roles','roles','','/auth/roles*',3,1,'2023-06-13 04:52:45',NULL),(4,'Permissions','permissions','','/auth/permissions*',4,1,'2023-06-13 04:52:45',NULL),(5,'Menu','menu','','/auth/menu*',5,1,'2023-06-13 04:52:45',NULL),(6,'Extension','extension','','/auth/extensions*',6,1,'2023-06-13 04:52:45',NULL),(7,'网站管理','网站管理','GET','/setting*',7,0,'2023-06-13 15:44:56','2023-06-13 15:46:57'),(8,'广告管理','广告管理','GET','/advert*',8,0,'2023-06-13 15:46:37','2023-06-13 15:48:56');
 /*!40000 ALTER TABLE `admin_permissions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -185,6 +185,7 @@ CREATE TABLE `admin_role_menu` (
 
 LOCK TABLES `admin_role_menu` WRITE;
 /*!40000 ALTER TABLE `admin_role_menu` DISABLE KEYS */;
+INSERT INTO `admin_role_menu` VALUES (1,2,'2023-06-13 16:02:28','2023-06-13 16:02:28'),(1,3,'2023-06-13 16:02:20','2023-06-13 16:02:20'),(1,4,'2023-06-13 16:02:39','2023-06-13 16:02:39'),(1,5,'2023-06-13 16:02:45','2023-06-13 16:02:45'),(1,6,'2023-06-13 16:02:50','2023-06-13 16:02:50'),(1,7,'2023-06-13 16:02:55','2023-06-13 16:02:55'),(2,1,'2023-06-13 15:39:58','2023-06-13 15:39:58'),(2,13,'2023-06-13 15:39:58','2023-06-13 15:39:58'),(2,14,'2023-06-13 15:39:58','2023-06-13 15:39:58');
 /*!40000 ALTER TABLE `admin_role_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -210,6 +211,7 @@ CREATE TABLE `admin_role_permissions` (
 
 LOCK TABLES `admin_role_permissions` WRITE;
 /*!40000 ALTER TABLE `admin_role_permissions` DISABLE KEYS */;
+INSERT INTO `admin_role_permissions` VALUES (2,7,'2023-06-13 15:47:12','2023-06-13 15:47:12'),(2,8,'2023-06-13 15:47:12','2023-06-13 15:47:12');
 /*!40000 ALTER TABLE `admin_role_permissions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -235,7 +237,7 @@ CREATE TABLE `admin_role_users` (
 
 LOCK TABLES `admin_role_users` WRITE;
 /*!40000 ALTER TABLE `admin_role_users` DISABLE KEYS */;
-INSERT INTO `admin_role_users` VALUES (1,1,'2023-06-13 04:52:45','2023-06-13 04:52:45');
+INSERT INTO `admin_role_users` VALUES (1,1,'2023-06-13 04:52:45','2023-06-13 04:52:45'),(2,2,'2023-06-13 15:40:21','2023-06-13 15:40:21');
 /*!40000 ALTER TABLE `admin_role_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,7 +256,7 @@ CREATE TABLE `admin_roles` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `admin_roles_slug_unique` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -263,7 +265,7 @@ CREATE TABLE `admin_roles` (
 
 LOCK TABLES `admin_roles` WRITE;
 /*!40000 ALTER TABLE `admin_roles` DISABLE KEYS */;
-INSERT INTO `admin_roles` VALUES (1,'Administrator','administrator','2023-06-13 04:52:45','2023-06-13 04:52:45');
+INSERT INTO `admin_roles` VALUES (1,'Administrator','administrator','2023-06-13 04:52:45','2023-06-13 04:52:45'),(2,'管理员','管理员','2023-06-13 15:39:58','2023-06-13 15:39:58');
 /*!40000 ALTER TABLE `admin_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -311,7 +313,7 @@ CREATE TABLE `admin_users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `admin_users_username_unique` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -320,7 +322,7 @@ CREATE TABLE `admin_users` (
 
 LOCK TABLES `admin_users` WRITE;
 /*!40000 ALTER TABLE `admin_users` DISABLE KEYS */;
-INSERT INTO `admin_users` VALUES (1,'admin','$2y$10$LIDTQiPZGfBdMRc0AHJ2K.fL0/ola7Jq/Pq8ucqKH6xYz.OdpzXQa','Administrator',NULL,NULL,'2023-06-13 04:52:45','2023-06-13 04:52:45');
+INSERT INTO `admin_users` VALUES (1,'admin','$2y$10$LIDTQiPZGfBdMRc0AHJ2K.fL0/ola7Jq/Pq8ucqKH6xYz.OdpzXQa','Administrator',NULL,NULL,'2023-06-13 04:52:45','2023-06-13 04:52:45'),(2,'test','$2y$10$BsMNUhawj1tE21gmCXrREOUBjShlgth4zJAbcaf3UPJaMVyLj9O1e','test',NULL,NULL,'2023-06-13 15:40:21','2023-06-13 15:40:21');
 /*!40000 ALTER TABLE `admin_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -381,6 +383,32 @@ CREATE TABLE `failed_jobs` (
 LOCK TABLES `failed_jobs` WRITE;
 /*!40000 ALTER TABLE `failed_jobs` DISABLE KEYS */;
 /*!40000 ALTER TABLE `failed_jobs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `map_marked_location`
+--
+
+DROP TABLE IF EXISTS `map_marked_location`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `map_marked_location` (
+  `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL COMMENT '地点名称',
+  `contact_information` varchar(100) NOT NULL COMMENT '联系方式',
+  `pic_url` varchar(200) NOT NULL COMMENT '图片地址',
+  `comment` varchar(300) NOT NULL COMMENT '评论',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `map_marked_location`
+--
+
+LOCK TABLES `map_marked_location` WRITE;
+/*!40000 ALTER TABLE `map_marked_location` DISABLE KEYS */;
+/*!40000 ALTER TABLE `map_marked_location` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -475,7 +503,6 @@ CREATE TABLE `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -503,4 +530,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-14  6:38:11
+-- Dump completed on 2023-06-14 13:41:01
