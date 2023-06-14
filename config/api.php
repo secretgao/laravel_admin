@@ -11,7 +11,7 @@ return [
     | login page.
     |
     */
-    'name' => 'Map Admin',
+    'name' => 'Dcat Admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ return [
     | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo' => '<img src="/vendor/dcat-admin/images/logo.png" width="35"> &nbsp;Map Admin',
+    'logo' => '<img src="/vendor/dcat-admin/images/logo.png" width="35"> &nbsp;Dcat Admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,14 +45,14 @@ return [
     'favicon' => null,
 
     /*
-     |--------------------------------------------------------------------------
-     | User default avatar
-     |--------------------------------------------------------------------------
-     |
-     | Set a default avatar for newly created users.
-     |
-     */
-    'default_avatar' => '@admin/images/default-avatar.jpg',
+	 |--------------------------------------------------------------------------
+	 | User default avatar
+	 |--------------------------------------------------------------------------
+	 |
+	 | Set a default avatar for newly created users.
+	 |
+	 */
+	'default_avatar' => '@admin/images/default-avatar.jpg',
 
     /*
     |--------------------------------------------------------------------------
@@ -67,13 +67,12 @@ return [
     'route' => [
         'domain' => env('ADMIN_ROUTE_DOMAIN'),
 
-        'prefix' => env('ADMIN_ROUTE_PREFIX', 'admin'),
+        'prefix' => 'api',
 
-        'namespace' => 'App\\Admin\\Controllers',
+        'namespace' => 'App\\Api\\Controllers',
 
-        'middleware' => ['web', 'admin'],
-
-        'enable_session_middleware' => false,
+      //  'middleware' => ['web', 'admin'],
+        'middleware' => [],
     ],
 
     /*
@@ -86,7 +85,7 @@ return [
     | be set before running `artisan admin::install` to take effect.
     |
     */
-    'directory' => app_path('Admin'),
+    'directory' => app_path('Api'),
 
     /*
     |--------------------------------------------------------------------------
@@ -130,19 +129,19 @@ return [
     'auth' => [
         'enable' => true,
 
-        'controller' => App\Admin\Controllers\AuthController::class,
+        'controller' => App\Api\Controllers\AuthController::class,
 
-        'guard' => 'admin',
+        'guard' => 'api',
 
         'guards' => [
-            'admin' => [
+            'api' => [
                 'driver'   => 'session',
-                'provider' => 'admin',
+                'provider' => 'api',
             ],
         ],
 
         'providers' => [
-            'admin' => [
+            'api' => [
                 'driver' => 'eloquent',
                 'model'  => Dcat\Admin\Models\Administrator::class,
             ],
@@ -158,7 +157,6 @@ return [
             'auth/logout',
         ],
 
-        'enable_session_middleware' => false,
     ],
 
     /*
@@ -223,6 +221,7 @@ return [
             'auth/logout',
             'auth/setting',
         ],
+
     ],
 
     /*
@@ -247,7 +246,7 @@ return [
         // Whether enable permission bind to menu.
         'permission_bind_menu' => true,
 
-        'default_icon' => 'feather icon-circle',
+		'default_icon' => 'feather icon-circle',
     ],
 
     /*
@@ -269,7 +268,6 @@ return [
             'image' => 'images',
             'file'  => 'files',
         ],
-
     ],
 
     /*
@@ -307,8 +305,8 @@ return [
         'role_menu_table'        => 'admin_role_menu',
         'permission_menu_table'  => 'admin_permission_menu',
         'settings_table'         => 'admin_settings',
-        'extensions_table'       => 'admin_extensions',
-        'extension_histories_table' => 'admin_extension_histories',
+		'extensions_table'       => 'admin_extensions',
+		'extension_histories_table' => 'admin_extension_histories',
     ],
 
     /*
@@ -322,7 +320,7 @@ return [
         // default, blue, blue-light, green
         'color' => 'default',
 
-        // sidebar-separate
+		// sidebar-separate
         'body_class' => [],
 
         'horizontal_menu' => false,
@@ -330,7 +328,7 @@ return [
         'sidebar_collapsed' => false,
 
         // light, primary, dark
-        'sidebar_style' => 'light',
+		'sidebar_style' => 'light',
 
         'dark_mode_switch' => false,
 
@@ -354,22 +352,4 @@ return [
     | Whether enable default breadcrumb for every page content.
     */
     'enable_default_breadcrumb' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Extension
-    |--------------------------------------------------------------------------
-    */
-    'extension' => [
-        // When you use command `php artisan admin:ext-make` to generate extensions,
-        // the extension files will be generated in this directory.
-        'dir' => base_path('dcat-admin-extensions'),
-    ],
-
-    'multi_app' => [
-        // 与新应用的配置文件名称一致
-        // 设置为true启用，false则是停用
-        'api' => true,
-    ],
-
 ];

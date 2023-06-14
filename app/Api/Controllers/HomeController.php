@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Admin\Controllers;
+namespace App\Api\Controllers;
 
-use App\Admin\Metrics\Examples;
+use App\Api\Metrics\Examples;
 use App\Http\Controllers\Controller;
 use Dcat\Admin\Http\Controllers\Dashboard;
 use Dcat\Admin\Layout\Column;
@@ -13,13 +13,10 @@ class HomeController extends Controller
 {
     public function index(Content $content)
     {
-
-        $d = date('Y-m-d H:i:s');
+        exit('error');
         return $content
-            ->header('控制台')
-            ->description('')
-            ->body('您好，今天是:'.$d.'欢迎进入后台');
-            /*
+            ->header('Dashboard')
+            ->description('Description...')
             ->body(function (Row $row) {
                 $row->column(6, function (Column $column) {
                     $column->row(Dashboard::title());
@@ -36,6 +33,5 @@ class HomeController extends Controller
                     $column->row(new Examples\ProductOrders());
                 });
             });
-            */
     }
 }

@@ -2,13 +2,15 @@
 
 namespace App\Admin\Controllers;
 
-use App\Admin\Repositories\Notice;
-use Dcat\Admin\Form;
+
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
+use App\Admin\Forms\Notice;
+use Dcat\Admin\Widgets\Card;
 use Dcat\Admin\Http\Controllers\AdminController;
+use Dcat\Admin\Layout\Content;
 
-class NoticeController extends AdminController
+class AdController extends AdminController
 {
     /**
      * Make a grid builder.
@@ -19,7 +21,7 @@ class NoticeController extends AdminController
     {
         return Grid::make(new Notice(), function (Grid $grid) {
             $grid->column('id')->sortable();
-            $grid->column('nocite');
+            $grid->column('notice');
             $grid->column('created_at');
             $grid->column('updated_at')->sortable();
 
@@ -41,26 +43,37 @@ class NoticeController extends AdminController
     {
         return Show::make($id, new Notice(), function (Show $show) {
             $show->field('id');
-            $show->field('id');
-            $show->field('nocite');
+            $show->field('notice');
             $show->field('created_at');
             $show->field('updated_at');
         });
     }
 
-    /**
-     * Make a form builder.
-     *
-     * @return Form
-     */
-    protected function form()
-    {
-        return Form::make(new Notice(), function (Form $form) {
-            $form->display('id');
-            $form->text('notice');
 
-            $form->display('created_at');
-            $form->display('updated_at');
-        });
+
+
+  /**
+   * 添加广告
+   * @author: gaoxinyu
+   * @Date: 2023/6/14
+   */
+    public function add(Content $content){
+
+         return $content
+             ->title('广告')
+             ->description('添加广告')
+             ->body(new Card(new Notice()));
+    }
+
+    /**
+     * 广告列表
+     * @author: gaoxinyu
+     * @Date: 2023/6/14
+     */
+    public function index(Content $content){
+
+        return $content
+            ->title('广告')
+            ->description('广告列表');
     }
 }

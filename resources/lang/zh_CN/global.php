@@ -22,6 +22,7 @@ return [
         'path'                  => '路径',
         'input'                 => '输入',
         'type'                  => '类型',
+        'notice'                => '公告'
     ],
     'labels' => [
         'list'     => '列表',

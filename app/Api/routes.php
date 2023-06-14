@@ -13,14 +13,8 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index');
-    //网站设置
-    $router->get('/setting', 'SettingController@index');
-
+    //公告
+    $router->get('/notice', 'NoticeController@index');
     //广告
-    $router->get('/ad/add', 'AdController@add');
-    $router->get('/ad/index', 'AdController@index');
-
-
-    //生成的
-    $router->resource('/advert',AdvertController::class);
+    $router->get('/ad/list','AdController@index');
 });
