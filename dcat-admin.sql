@@ -92,7 +92,7 @@ CREATE TABLE `admin_menu` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,7 +101,7 @@ CREATE TABLE `admin_menu` (
 
 LOCK TABLES `admin_menu` WRITE;
 /*!40000 ALTER TABLE `admin_menu` DISABLE KEYS */;
-INSERT INTO `admin_menu` VALUES (1,0,1,'Index','feather icon-bar-chart-2','/','',1,'2023-06-13 04:52:45',NULL),(2,0,2,'Admin','feather icon-settings',NULL,'',1,'2023-06-13 04:52:45','2023-06-13 16:02:28'),(3,2,3,'Users',NULL,'auth/users','',1,'2023-06-13 04:52:45','2023-06-13 16:02:20'),(4,2,4,'Roles',NULL,'auth/roles','',1,'2023-06-13 04:52:45','2023-06-13 16:02:39'),(5,2,5,'Permission',NULL,'auth/permissions','',1,'2023-06-13 04:52:45','2023-06-13 16:02:45'),(6,2,6,'Menu',NULL,'auth/menu','',1,'2023-06-13 04:52:45','2023-06-13 16:02:50'),(7,2,7,'Extensions',NULL,'auth/extensions','',1,'2023-06-13 04:52:45','2023-06-13 16:02:55'),(13,0,13,'网站设置','fa-plane','/setting','',1,'2023-06-13 10:26:25','2023-06-13 16:01:39'),(14,0,14,'广告管理','fa-address-book','advert','',1,'2023-06-13 11:04:05','2023-06-13 11:16:40');
+INSERT INTO `admin_menu` VALUES (1,0,1,'Index','feather icon-bar-chart-2','/','',1,'2023-06-13 04:52:45',NULL),(2,0,2,'Admin','feather icon-settings',NULL,'',1,'2023-06-13 04:52:45','2023-06-13 16:02:28'),(3,2,3,'Users',NULL,'auth/users','',1,'2023-06-13 04:52:45','2023-06-13 16:02:20'),(4,2,4,'Roles',NULL,'auth/roles','',1,'2023-06-13 04:52:45','2023-06-13 16:02:39'),(5,2,5,'Permission',NULL,'auth/permissions','',1,'2023-06-13 04:52:45','2023-06-13 16:02:45'),(6,2,6,'Menu',NULL,'auth/menu','',1,'2023-06-13 04:52:45','2023-06-13 16:02:50'),(7,2,7,'Extensions',NULL,'auth/extensions','',1,'2023-06-13 04:52:45','2023-06-13 16:02:55'),(13,0,13,'网站设置','fa-plane','/setting','',1,'2023-06-13 10:26:25','2023-06-13 16:01:39'),(14,0,14,'广告管理','fa-address-book','advert','',1,'2023-06-13 11:04:05','2023-06-13 11:16:40'),(15,0,15,'地图标注','fa-h-square','/map','',1,'2023-06-14 13:32:28','2023-06-14 13:32:28');
 /*!40000 ALTER TABLE `admin_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,7 +127,7 @@ CREATE TABLE `admin_permission_menu` (
 
 LOCK TABLES `admin_permission_menu` WRITE;
 /*!40000 ALTER TABLE `admin_permission_menu` DISABLE KEYS */;
-INSERT INTO `admin_permission_menu` VALUES (7,13,'2023-06-13 15:44:56','2023-06-13 15:44:56'),(8,14,'2023-06-13 15:46:37','2023-06-13 15:46:37');
+INSERT INTO `admin_permission_menu` VALUES (7,13,'2023-06-13 15:44:56','2023-06-13 15:44:56'),(8,14,'2023-06-13 15:46:37','2023-06-13 15:46:37'),(9,15,'2023-06-14 13:32:28','2023-06-14 13:32:28');
 /*!40000 ALTER TABLE `admin_permission_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,7 +150,7 @@ CREATE TABLE `admin_permissions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `admin_permissions_slug_unique` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,7 +159,7 @@ CREATE TABLE `admin_permissions` (
 
 LOCK TABLES `admin_permissions` WRITE;
 /*!40000 ALTER TABLE `admin_permissions` DISABLE KEYS */;
-INSERT INTO `admin_permissions` VALUES (1,'Auth management','auth-management','','',1,0,'2023-06-13 04:52:45',NULL),(2,'Users','users','','/auth/users*',2,1,'2023-06-13 04:52:45',NULL),(3,'Roles','roles','','/auth/roles*',3,1,'2023-06-13 04:52:45',NULL),(4,'Permissions','permissions','','/auth/permissions*',4,1,'2023-06-13 04:52:45',NULL),(5,'Menu','menu','','/auth/menu*',5,1,'2023-06-13 04:52:45',NULL),(6,'Extension','extension','','/auth/extensions*',6,1,'2023-06-13 04:52:45',NULL),(7,'网站管理','网站管理','GET','/setting*',7,0,'2023-06-13 15:44:56','2023-06-13 15:46:57'),(8,'广告管理','广告管理','GET','/advert*',8,0,'2023-06-13 15:46:37','2023-06-13 15:48:56');
+INSERT INTO `admin_permissions` VALUES (1,'Auth management','auth-management','','',1,0,'2023-06-13 04:52:45',NULL),(2,'Users','users','','/auth/users*',2,1,'2023-06-13 04:52:45',NULL),(3,'Roles','roles','','/auth/roles*',3,1,'2023-06-13 04:52:45',NULL),(4,'Permissions','permissions','','/auth/permissions*',4,1,'2023-06-13 04:52:45',NULL),(5,'Menu','menu','','/auth/menu*',5,1,'2023-06-13 04:52:45',NULL),(6,'Extension','extension','','/auth/extensions*',6,1,'2023-06-13 04:52:45',NULL),(7,'网站管理','网站管理','','/setting*',7,0,'2023-06-13 15:44:56','2023-06-13 23:19:10'),(8,'广告管理','广告管理','','/advert*',8,0,'2023-06-13 15:46:37','2023-06-13 23:19:04'),(9,'地图标注','地图标注','','/map*',9,0,'2023-06-14 13:30:32','2023-06-14 13:32:47');
 /*!40000 ALTER TABLE `admin_permissions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -398,8 +398,12 @@ CREATE TABLE `map_marked_location` (
   `contact_information` varchar(100) NOT NULL COMMENT '联系方式',
   `pic_url` varchar(200) NOT NULL COMMENT '图片地址',
   `comment` varchar(300) NOT NULL COMMENT '评论',
+  `lat` varchar(50) NOT NULL COMMENT '经度',
+  `lng` varchar(50) NOT NULL COMMENT '纬度',
+  `created_at` timestamp NOT NULL COMMENT '创建时间',
+  `updated_at` timestamp NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -408,6 +412,7 @@ CREATE TABLE `map_marked_location` (
 
 LOCK TABLES `map_marked_location` WRITE;
 /*!40000 ALTER TABLE `map_marked_location` DISABLE KEYS */;
+INSERT INTO `map_marked_location` VALUES (2,'1223','2323','23232','12313','223','2323','2023-06-14 20:01:19','2023-06-14 20:01:19'),(3,'1223','2323','23232','12313','223','2323','2023-06-14 20:01:23','2023-06-14 20:01:23'),(4,'2','','','','1','1','2023-06-14 12:09:49','2023-06-14 12:09:49');
 /*!40000 ALTER TABLE `map_marked_location` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -530,4 +535,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-14 13:41:01
+-- Dump completed on 2023-06-15  5:36:32

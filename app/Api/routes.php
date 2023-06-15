@@ -19,4 +19,8 @@ Route::group([
     //广告
     $router->get('/ad/list','AdController@index');
     $router->get('/ad/test','AdController@test');
+
+    //地图
+    $router->get('/map/list','MapController@index');
+    $router->post('/map/add','MapController@add');
 });

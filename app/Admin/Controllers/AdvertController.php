@@ -89,9 +89,17 @@ class AdvertController extends AdminController
             $form->text('url')->required()->help('广告跳转链接');
             $form->text('sort')->help('数值越大，排序越靠前');
             $form->select('state','状态')
-                ->options([0=>'下架',1=>'上架']);
+                ->options([0=>'下架',1=>'上架'])->required();
             $form->display('created_at');
             $form->display('updated_at');
+            $form->footer(function ($footer) {
+                // 去掉`查看`checkbox
+                $footer->disableViewCheck();
+                // 去掉`继续编辑`checkbox
+                $footer->disableEditingCheck();
+                // 去掉`继续创建`checkbox
+                $footer->disableCreatingCheck();
+            });
         });
     }
 }

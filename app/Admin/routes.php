@@ -16,11 +16,7 @@ Route::group([
     //网站设置
     $router->get('/setting', 'SettingController@index');
 
-    //广告
-    $router->get('/ad/add', 'AdController@add');
-    $router->get('/ad/index', 'AdController@index');
-
-
     //生成的
     $router->resource('/advert',AdvertController::class);
+    $router->resource('/map',MapMarkedLocationController::class);
 });
