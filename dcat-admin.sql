@@ -322,7 +322,7 @@ CREATE TABLE `admin_users` (
 
 LOCK TABLES `admin_users` WRITE;
 /*!40000 ALTER TABLE `admin_users` DISABLE KEYS */;
-INSERT INTO `admin_users` VALUES (1,'admin','$2y$10$LIDTQiPZGfBdMRc0AHJ2K.fL0/ola7Jq/Pq8ucqKH6xYz.OdpzXQa','Administrator',NULL,NULL,'2023-06-13 04:52:45','2023-06-13 04:52:45'),(2,'test','$2y$10$BsMNUhawj1tE21gmCXrREOUBjShlgth4zJAbcaf3UPJaMVyLj9O1e','test',NULL,NULL,'2023-06-13 15:40:21','2023-06-13 15:40:21');
+INSERT INTO `admin_users` VALUES (1,'admin','$2y$10$x29ljewfsE8z/oY4x3GAXu2eKvJ203XJzjDGrO6vGE2H9jHtNv/Ku','Administrator',NULL,NULL,'2023-06-13 04:52:45','2023-06-14 14:05:35'),(2,'test','$2y$10$BsMNUhawj1tE21gmCXrREOUBjShlgth4zJAbcaf3UPJaMVyLj9O1e','test',NULL,NULL,'2023-06-13 15:40:21','2023-06-13 15:40:21');
 /*!40000 ALTER TABLE `admin_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -535,4 +535,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-15  6:03:02
+-- Dump completed on 2023-06-15  6:05:46
