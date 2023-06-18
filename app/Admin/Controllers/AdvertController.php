@@ -77,15 +77,8 @@ class AdvertController extends AdminController
                 ->required()->uniqueName()
                 ->autoUpload()
                 ->maxSize(12*1024)
-                ->help('大小不要超过12M,上传宽度为100-300像素之间的图片')
-                ->saving(function ($value) use ($form){
-                    if ($form->isEditing() && ! $value) {
-                        // 编辑页面，删除图片逻辑
-                        Image::destroy($form->model()->img_url);
+                ->help('大小不要超过12M,上传宽度为100-300像素之间的图片');
 
-                        return;
-                    }
-                });
             $form->text('url')->required()->help('广告跳转链接');
             $form->text('sort')->help('数值越大，排序越靠前');
             $form->select('state','状态')
