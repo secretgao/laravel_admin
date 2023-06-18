@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\MapMarkedLocation;
 use App\Models\Notice;
 use Dcat\Admin\Http\JsonResponse;
-use Illuminate\Validation\Validator;
 
 
 class MapController extends Controller
@@ -50,19 +49,22 @@ class MapController extends Controller
          */
         $data = $request->input();
 
+        /*
         if (empty($data['name']) || empty($data['lat']) || empty($data['lng'])){
             return JsonResponse::make()->error('请求参数错误');
         }
-/*
-        $validate = Validator::make($request->all(), [
-            'id' => 'required|integer|between:1,10',
-            'title' => 'required|string'
+        */
+
+        $validate = \Illuminate\Support\Facades\Validator::make($request->all(), [
+            'name' => 'required|string',
+            'lat' => 'required|string',
+            'lng' => 'required|string',
         ]);
         if($validate->fails())
         {
             return JsonResponse::make()->error($validate->errors()->first());
         }
-*/
+
         $insert['name'] = $data['name'];
         $insert['contact_information'] = $data['contact_information'] ?? "";
         $insert['pic_url'] = $data['pic_url'] ?? "";

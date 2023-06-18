@@ -52,7 +52,8 @@ class CommonController extends Controller
         $filepath = 'images'.DIRECTORY_SEPARATOR.$filename;
         $destination =  $upload_path.DIRECTORY_SEPARATOR.$filepath;
         if (move_uploaded_file($_FILES['file']['tmp_name'],$destination)){
-            return JsonResponse::make()->data(['path'=>$filepath])->success('上传图片成功');
+            $display_path= env('APP_URL').DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.$filepath;
+            return JsonResponse::make()->data(['path'=>$filepath,'display_path'=>$display_path])->success('上传图片成功');
         } else {
             return JsonResponse::make()->error('上传图片失败');
         }
