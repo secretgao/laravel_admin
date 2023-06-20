@@ -24,8 +24,10 @@ class MapController extends Controller
             ->get()->toArray();
         if ($data){
             foreach ($data as $key=>$item){
-                $data[$key]['display_pic_url'] = env('APP_URL').DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.$item['pic_url'];
-                unset($data[$key]['pic_url']);
+                if ($item['pic_url']){
+                    $data[$key]['display_pic_url'] = env('APP_URL').DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.$item['pic_url'];
+                    unset($data[$key]['pic_url']);
+                }
             }
         }
 
