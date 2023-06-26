@@ -11,7 +11,7 @@ return [
     | login page.
     |
     */
-    'name' => 'Map Admin',
+    'name' => '<h1>Thaixmap</h1>',
 
     /*
     |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ return [
     | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo' => '<img src="/vendor/dcat-admin/images/logo.png" width="35"> &nbsp;Map Admin',
+    'logo' => '<img src="/vendor/dcat-admin/images/logo.png" width="35"> &nbsp;<h1>Thaixmap</h1>',
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-    'favicon' => null,
+    'favicon' => '/vendor/dcat-admin/images/logo.png',
 
     /*
      |--------------------------------------------------------------------------

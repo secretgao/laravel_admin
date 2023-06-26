@@ -17,7 +17,7 @@ class HomeController extends Controller
         $username = Admin::user()->username;
 
         return $content
-            ->header('控制台')
+            ->header('管理后台Thaixmap admin')
             ->description('')
             ->body('您好，'.$username.'欢迎进入后台');
             /*
