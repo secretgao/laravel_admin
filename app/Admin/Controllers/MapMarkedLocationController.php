@@ -20,6 +20,7 @@ class MapMarkedLocationController extends AdminController
         return Grid::make(new MapMarkedLocation(), function (Grid $grid) {
             $grid->column('id')->sortable();
             $grid->column('name');
+            $grid->column('address');
             $grid->column('contact_information');
             $grid->column('pic_url');
             $grid->column('comment');
@@ -52,6 +53,7 @@ class MapMarkedLocationController extends AdminController
             $show->field('comment');
             $show->field('lat');
             $show->field('lng');
+            $show->field('address');
             $show->field('created_at');
             $show->field('updated_at');
         });
@@ -72,7 +74,7 @@ class MapMarkedLocationController extends AdminController
             $form->text('comment');
             $form->text('lat');
             $form->text('lng');
-        
+            $form->text('address');
             $form->display('created_at');
             $form->display('updated_at');
             $form->footer(function ($footer) {

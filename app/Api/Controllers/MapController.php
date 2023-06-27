@@ -20,12 +20,17 @@ class MapController extends Controller
     public function index()
     {
         $data=MapMarkedLocation::query()
-            ->select(['name','contact_information','pic_url','comment','lat','lng'])
+            ->select(['name','contact_information','pic_url','comment','lat','lng','address'])
             ->get()->toArray();
+
         if ($data){
             foreach ($data as $key=>$item){
                 if ($item['pic_url']){
-                    $data[$key]['display_pic_url'] = env('APP_URL').DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.$item['pic_url'];
+                    $pic_url_arr = explode(',',$item['pic_url']);
+
+                    foreach ($pic_url_arr as $pk=>$pitem){
+                        $data[$key]['display_pic_url'][$pk] = env('APP_URL').DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.$pitem;
+                    }
                     unset($data[$key]['pic_url']);
                 }
             }
@@ -51,16 +56,11 @@ class MapController extends Controller
          */
         $data = $request->input();
 
-        /*
-        if (empty($data['name']) || empty($data['lat']) || empty($data['lng'])){
-            return JsonResponse::make()->error('请求参数错误');
-        }
-        */
-
         $validate = \Illuminate\Support\Facades\Validator::make($request->all(), [
             'name' => 'required|string',
             'lat' => 'required|string',
             'lng' => 'required|string',
+            'address' => 'required|string',
         ]);
         if($validate->fails())
         {
@@ -73,6 +73,7 @@ class MapController extends Controller
         $insert['comment'] = $data['comment'] ?? "";
         $insert['lat'] = $data['lat'];
         $insert['lng'] = $data['lng'];
+        $insert['address'] = $data['address'];
 
         if (MapMarkedLocation::query()->create($insert)){
             return JsonResponse::make()->success('地图标注成功！');
@@ -80,5 +81,29 @@ class MapController extends Controller
             return JsonResponse::make()->error('地图标注失败！');
         }
 
+    }
+
+    /**
+     * 更新操作
+     * @param \Illuminate\Http\Request $request
+     * @return JsonResponse
+     * @author: gaoxinyu
+     * @Date: 2023/6/27
+     */
+    public function edit(\Illuminate\Http\Request $request){
+
+        $data = $request->input();
+        $id = $data['id'];
+        unset($data['id']);
+
+        if (!MapMarkedLocation::query()->where('id',$id)->exists()){
+            return JsonResponse::make()->error('数据不存在！');
+        }
+
+        if (MapMarkedLocation::query()->where('id',$id)->update($data)){
+            return JsonResponse::make()->success('地图标注更新成功！');
+        } else {
+            return JsonResponse::make()->error('地图标注更新失败！');
+        }
     }
 }

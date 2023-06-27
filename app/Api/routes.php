@@ -23,4 +23,5 @@ Route::group([
     //地图
     $router->get('/map/list','MapController@index');
     $router->post('/map/add','MapController@add');
+    $router->post('/map/edit','MapController@edit');
 });
