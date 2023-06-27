@@ -32,6 +32,7 @@ class Setting extends Form
     public function form()
     {
         $this->text('notice')->default(admin_setting('notice'))->required();
+        $this->text('ak')->default(admin_setting('ak'))->required();
 
     }
 
@@ -44,7 +45,7 @@ class Setting extends Form
     {
         return [
             'notice'  => admin_setting('notice'),
-
+            'ak'  => admin_setting('ak'),
         ];
     }
 }

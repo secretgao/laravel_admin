@@ -15,7 +15,6 @@ class CommonController extends Controller
      */
      public function upload(){
 
-       // var_dump($_FILES);
         if (empty($_FILES)){
             return JsonResponse::make()->error('请选择上传图片');
         }
@@ -31,9 +30,9 @@ class CommonController extends Controller
         if ($_FILES["file"]["error"] > 0) {
              return JsonResponse::make()->error($_FILES["file"]["error"]);
         }
-//1024
-        if ($_FILES['file']['size'] > 2048){
-         //   return JsonResponse::make()->error('图片大小不能超过2M');
+        //1024*5
+        if ($_FILES['file']['size'] > 5120){
+            return JsonResponse::make()->error('图片大小不能超过5M');
         }
 
         if (!in_array($_FILES['file']['type'],['image/jpg', 'image/jpeg', 'image/png'])){
@@ -59,5 +58,13 @@ class CommonController extends Controller
         }
          //return JsonResponse::make()->error('请选择上传图片');
 
+     }
+
+     public function getAK(){
+         $ak = '';
+         if (admin_setting('ak')){
+             $ak = admin_setting('ak');
+         }
+         return JsonResponse::make()->data(['ak'=>$ak])->success('成功！');
      }
 }

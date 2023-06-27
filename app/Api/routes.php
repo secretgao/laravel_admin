@@ -16,6 +16,8 @@ Route::group([
     $router->get('/', 'HomeController@index');
     //公告
     $router->get('/notice', 'NoticeController@index');
+    //获取ak
+    $router->get('/common/getak', 'CommonController@getAk');
     //广告
     $router->get('/ad/list','AdController@index');
     $router->get('/ad/test','AdController@test');
