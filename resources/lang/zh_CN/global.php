@@ -22,7 +22,8 @@ return [
         'path'                  => '路径',
         'input'                 => '输入',
         'type'                  => '类型',
-        'notice'                => '公告'
+        'notice'                => '公告',
+        'ak'                    => '百度地图AK'
     ],
     'labels' => [
         'list'     => '列表',
