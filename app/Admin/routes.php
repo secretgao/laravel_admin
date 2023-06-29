@@ -19,4 +19,5 @@ Route::group([
     //生成的
     $router->resource('/advert',AdvertController::class);
     $router->resource('/map',MapMarkedLocationController::class);
+    $router->resource('/label',LabelController::class);
 });

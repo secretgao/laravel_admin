@@ -26,4 +26,7 @@ Route::group([
     $router->get('/map/list','MapController@index');
     $router->post('/map/add','MapController@add');
     $router->post('/map/edit','MapController@edit');
+
+    //标注图标
+    $router->get('/label','LabelController@index');
 });

@@ -28,6 +28,7 @@ class AdController extends Controller
     }
 
 
+
     public function test(){
 
         $pwd = 'admin';

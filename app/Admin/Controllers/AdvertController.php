@@ -74,7 +74,8 @@ class AdvertController extends AdminController
             $form->image('img_url')
                 //->dimensions(['min_width' => 100, 'max_width' => 300]) //// 上传宽度为100-300像素之间的图片
                 ->accept('jpg,png,jpeg')
-                ->required()->uniqueName()
+                ->required()
+                ->uniqueName()
                 ->autoUpload()
                 ->maxSize(12*1024)
                 ->help('大小不要超过12M,上传宽度为100-300像素之间的图片');

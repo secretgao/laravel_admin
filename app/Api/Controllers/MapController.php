@@ -3,6 +3,7 @@
 namespace App\Api\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Label;
 use App\Models\MapMarkedLocation;
 use App\Models\Notice;
 use Dcat\Admin\Http\JsonResponse;
@@ -20,10 +21,23 @@ class MapController extends Controller
     public function index()
     {
         $data=MapMarkedLocation::query()
-            ->select(['id','name','contact_information','pic_url','comment','lat','lng','address'])
+            ->select(['name','contact_information','pic_url','comment','lat','lng','address','label_id'])
             ->get()->toArray();
 
         if ($data){
+            $label_id_arr = array_unique(array_column($data,'label_id'));
+
+            $label=Label::query()
+                ->select(['id','img'])
+                ->whereIn('id',$label_id_arr)
+                ->get()->toArray();
+            $label_arr = [];
+            if ($label){
+                foreach ($label as $ite){
+                    $label_arr[$ite['id']] =  env('APP_URL').DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.$ite['img'];
+                }
+            }
+
             foreach ($data as $key=>$item){
                 if ($item['pic_url']){
                     $pic_url_arr = explode(',',$item['pic_url']);
@@ -33,6 +47,11 @@ class MapController extends Controller
                     }
                     unset($data[$key]['pic_url']);
                 }
+                $label_pic = '';
+                if ($label_arr){
+                    $label_pic= isset($label_arr[$item['label_id']]) ? $label_arr[$item['label_id']] : '';
+                }
+                $data[$key]['display_label_pic_url'] = $label_pic;
             }
         }
 
@@ -53,6 +72,7 @@ class MapController extends Controller
          * 	comment
          * 	lat
          * 	lng
+         *  label_id
          */
         $data = $request->input();
 
@@ -60,6 +80,7 @@ class MapController extends Controller
             'name' => 'required|string',
             'lat' => 'required|string',
             'lng' => 'required|string',
+            'label_id' => 'required|string',
             'address' => 'required|string',
         ]);
         if($validate->fails())
@@ -73,6 +94,7 @@ class MapController extends Controller
         $insert['comment'] = $data['comment'] ?? "";
         $insert['lat'] = $data['lat'];
         $insert['lng'] = $data['lng'];
+        $insert['label_id'] = $data['label_id'];
         $insert['address'] = $data['address'];
 
         if (MapMarkedLocation::query()->create($insert)){
