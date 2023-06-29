@@ -19,7 +19,7 @@ class LabelController extends Controller
     public function index()
     {
         $data=Label::query()
-            ->select(['name','img'])
+            ->select(['id','name','img'])
             ->get()->toArray();
 
         if ($data){
