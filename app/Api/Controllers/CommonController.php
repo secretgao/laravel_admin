@@ -31,8 +31,9 @@ class CommonController extends Controller
              return JsonResponse::make()->error($_FILES["file"]["error"]);
         }
         //1024*5
-        if ($_FILES['file']['size'] > 5120){
-            return JsonResponse::make()->error('图片大小不能超过5M');
+
+        if ($_FILES['file']['size'] > 512000){
+            return JsonResponse::make()->error('图片大小不能超过5M。当前大小：'.$_FILES['file']['size']);
         }
 
         if (!in_array($_FILES['file']['type'],['image/jpg', 'image/jpeg', 'image/png'])){
@@ -46,7 +47,10 @@ class CommonController extends Controller
         $info = pathinfo($_FILES['file']['name']);
 
         $ext = $info['extension'];
-        $filename = 'api_'.date('YmdHis').'.'.$ext;
+        $str =  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
+        $randStr = str_shuffle($str);
+
+        $filename = 'api_'.date('YmdHis').substr($randStr,0,6).'.'.$ext;
 
         $filepath = 'images'.DIRECTORY_SEPARATOR.$filename;
         $destination =  $upload_path.DIRECTORY_SEPARATOR.$filepath;
