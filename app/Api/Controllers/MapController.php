@@ -21,7 +21,7 @@ class MapController extends Controller
     public function index()
     {
         $data=MapMarkedLocation::query()
-            ->select(['name','contact_information','pic_url','comment','lat','lng','address','label_id'])
+            ->select(['id','name','contact_information','pic_url','comment','lat','lng','address','label_id'])
             ->get()->toArray();
 
         if ($data){
