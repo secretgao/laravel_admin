@@ -11,6 +11,6 @@ class MapMarkedLocation extends Model
 	use HasDateTimeFormatter;
     protected $table = 'map_marked_location';
 
-    protected $fillable = ['name','contact_information', 'pic_url', 'comment', 'lat', 'lng','address'];
+    protected $fillable = ['name','contact_information', 'pic_url', 'comment', 'lat', 'lng','address','label_id'];
     
 }
