@@ -94,15 +94,16 @@ class MapController extends Controller
         $insert['comment'] = $data['comment'] ?? "";
         $insert['lat'] = $data['lat'];
         $insert['lng'] = $data['lng'];
-        $insert['label_id'] = $data['label_id'];
+        $insert['label_id'] = intval($data['label_id']);
         $insert['address'] = $data['address'];
+        $insert['created_at'] = date('Y-m-d H:i:s',time());
+        $insert['updated_at'] = date('Y-m-d H:i:s',time());
 
-        if (MapMarkedLocation::query()->create($insert)){
+        if (MapMarkedLocation::query()->insert($insert)){
             return JsonResponse::make()->success('地图标注成功！');
         } else {
             return JsonResponse::make()->error('地图标注失败！');
         }
-
     }
 
     /**
@@ -121,7 +122,7 @@ class MapController extends Controller
         if (!MapMarkedLocation::query()->where('id',$id)->exists()){
             return JsonResponse::make()->error('数据不存在！');
         }
-
+        $data['updated_at'] = date('Y-m-d H:i:s',time());
         if (MapMarkedLocation::query()->where('id',$id)->update($data)){
             return JsonResponse::make()->success('地图标注更新成功！');
         } else {
