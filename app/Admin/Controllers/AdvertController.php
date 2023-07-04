@@ -22,9 +22,9 @@ class AdvertController extends AdminController
             $grid->column('name');
             $grid->column('img_url')->image('','80','80');
             $grid->column('url');
-            $grid->column('sort');
+            $grid->column('sort')->sortable();
 
-            $grid->column('state')->if(function ($column){
+            $grid->column('state')->sortable()->if(function ($column){
                 $state = $column->getValue();
                 return $state == 1 ?   $column->display('上架'): $column->display('下架');
             });
