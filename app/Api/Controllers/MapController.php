@@ -40,6 +40,18 @@ class MapController extends Controller
 
             foreach ($data as $key=>$item){
                // $pic_url_arr = [];
+                if (empty($item['address'])){
+                    $data[$key]['address'] = ' ';
+                }
+                if (empty($item['comment'])){
+                    $data[$key]['comment'] = ' ';
+                }
+                if (empty($item['contact_information'])){
+                    $data[$key]['contact_information'] = ' ';
+                }
+                if (empty($item['pic_url'])){
+                    $data[$key]['pic_url'] = ' ';
+                }
                 $pic_url_display_kv = [];
                 if ($item['pic_url']){
                     $pic_url_arr = explode(',',$item['pic_url']);
@@ -60,7 +72,8 @@ class MapController extends Controller
             }
         }
 
-        return JsonResponse::make()->data(['list'=>$data])->success('成功！');
+        return  json_encode(['list'=>$data]);exit();
+       // return JsonResponse::make()->data(['list'=>$data])->success('成功！');
     }
 
     /**
