@@ -31,7 +31,9 @@ class Setting extends Form
      */
     public function form()
     {
-        $this->text('notice')->default(admin_setting('notice'))->required();
+        $this->text('notice1')->default(admin_setting('notice1'));
+        $this->text('notice2')->default(admin_setting('notice2'));
+        $this->text('notice3')->default(admin_setting('notice3'));
         $this->text('ak')->default(admin_setting('ak'))->required();
 
     }
@@ -44,7 +46,9 @@ class Setting extends Form
     public function default()
     {
         return [
-            'notice'  => admin_setting('notice'),
+            'notice1'  => admin_setting('notice1'),
+            'notice2'  => admin_setting('notice2'),
+            'notice3'  => admin_setting('notice3'),
             'ak'  => admin_setting('ak'),
         ];
     }

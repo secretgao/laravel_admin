@@ -22,7 +22,9 @@ return [
         'path'                  => '路径',
         'input'                 => '输入',
         'type'                  => '类型',
-        'notice'                => '公告',
+        'notice1'                => '公告1',
+        'notice2'                => '公告2',
+        'notice3'                => '公告3',
         'ak'                    => '百度地图AK'
     ],
     'labels' => [
