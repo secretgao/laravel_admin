@@ -39,14 +39,19 @@ class MapController extends Controller
             }
 
             foreach ($data as $key=>$item){
+               // $pic_url_arr = [];
+                $pic_url_display_kv = [];
                 if ($item['pic_url']){
                     $pic_url_arr = explode(',',$item['pic_url']);
 
                     foreach ($pic_url_arr as $pk=>$pitem){
                         $data[$key]['display_pic_url'][$pk] = env('APP_URL').DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.$pitem;
+                        $pic_url_display_kv[$pitem] = env('APP_URL').DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.$pitem;
                     }
-                    unset($data[$key]['pic_url']);
+
+                   // unset($data[$key]['pic_url']);
                 }
+                $data[$key]['pic_url_display_kv'] = $pic_url_display_kv;
                 $label_pic = '';
                 if ($label_arr){
                     $label_pic= isset($label_arr[$item['label_id']]) ? $label_arr[$item['label_id']] : '';
