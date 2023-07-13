@@ -72,7 +72,7 @@ class MapController extends Controller
             }
         }
 
-        return  json_encode(['list'=>$data]);exit();
+        return  json_encode(['data'=>['list'=>$data]]);exit();
        // return JsonResponse::make()->data(['list'=>$data])->success('成功！');
     }
 
